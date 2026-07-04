@@ -1,0 +1,28 @@
+.dashboard-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  position: relative;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0));
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .dashboard-body {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+.yarn/
+.pnp.*
+.yarnrc.yml
+dist/
+build/
+.env
+.DS_Store
+.vite

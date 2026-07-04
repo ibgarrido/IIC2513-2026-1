@@ -1,0 +1,504 @@
+{
+  "info": {
+    "_postman_id": "82065b36-5c29-43c2-b37f-b545a708f720",
+    "name": "Proyecto",
+    "description": "## 1. Configurar variables de entorno\n\nCreá dos entornos en Postman para poder cambiar entre local y remoto sin editar cada request.\n\n**Entorno: Local**\n- `baseUrl` → `http://localhost:3000`\n- `token` → *(se llena después del login)*\n\n**Entorno: Remoto**\n- `baseUrl` → `https://four04-ideas-not-found-backend-26-1.onrender.com`\n- `token` → *(se llena después del login)*\n\n**Cómo crear un entorno:**\n1. En Postman, clic en el ícono de ojo (Environments) → **Add**\n2. Dale un nombre (`Local` o `Remoto`)\n3. Agregá la variable `baseUrl` con el valor correspondiente\n4. Guardá\n5. Seleccioná el entorno activo desde el selector en la esquina superior derecha\n\nTodos los requests de la colección usan `{{baseUrl}}` como base, así que solo tenés que cambiar el entorno para apuntar a local o remoto.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53924745",
+    "_collection_link": "https://go.postman.co/collection/53924745-82065b36-5c29-43c2-b37f-b545a708f720?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "/auth/login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Juan Pérez\",\r\n    \"password\": \"user123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Solicitud tipo POST para hacer log in de usuario.\n\nbody:\n\n``` json\n{\n    \"nombre\": \"foo\",\n    \"password\": \"bar\"\n}\n\n ```\n\nrespuestas:\n\n401 (Unauthorized): Datos incorrectos o usuario no existe..\n\n400 (bad request): Falta nombre o contraseña.\n\n200 (Created): login correcto: responde con:\n\n``` json\n{\n    \"message\": \"Login OK\",\n    \"token\": \"token\",\n    \"user\": {\n        \"nombre\": \"foo\",\n        \"carrito\": \"id del carrito del usuario\"\n    }\n}\n\n ```"
+          },
+          "response": []
+        },
+        {
+          "name": "/auth/register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"wsd\",\r\n    \"password\": \"hola\",\r\n    \"email\": \"cosa@asd.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "description": "Solicitud tipo POST para registar a un usuario.\n\nbody:\n\n``` json\n{\n    \"nombre\": \"foo\",\n    \"password\": \"bar\",\n    \"email\": \"foo@bar.com\"\n}\n\n ```\n\nrespuestas:\n\n409 (conflict): Hay dos formas de obtener esta respuesta, por nombre que ya existe en la bd y por correo ya asociado a usuario.\n\n400 (bad request): Falta nombre, contraseña o correo.\n\n201 (Created): usuario creado: responde con:\n\n``` json\n{\n    \"message\": \"User created successfully\",\n    \"token\": \"token\",\n    \"user\": {\n        \"id\": \"id usuario\",\n        \"nombre\": \"foo\",\n        \"cartId\": \"id del carrito creado para el usuario\"\n    }\n}\n\n ```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "catalog",
+      "item": [
+        {
+          "name": "search item",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/catalog/?search=&page=2&limit=3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "catalog",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": ""
+                },
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "3"
+                }
+              ]
+            },
+            "description": "API get en ruta /catalog/  \nrecibe parametros `search`, `page` y `limit`.\n\n`search`: entrada para buscar productos con terminos similares, dejar vacio para obtener todos los diponibles.\n\n`page`: numero de pagina actual, valor por defecto = 1.\n\n`limit`: cantidad de elementos por pagina.\n\nrespuesta ejemplo:\n\nstatus 200: ok\n\n``` json\n{\n    \"data\": [\n        {\n            \"id\": \"91439b70-0042-4934-869e-62ea65f1cb46\",\n            \"nombre\": \"Polera Manga Larga\",\n            \"descripcion\": \"Polera térmica de manga larga para días fríos\",\n            \"precioBase\": 24990,\n            \"image_url\": \"https://placehold.co/400x400?text=Manga+Larga\",\n            \"activo\": true,\n            \"variantes\": [\n                {\n                    \"id\": \"d7cdb0f0-f0a5-42de-a69a-6d750ae5b6c8\",\n                    \"talla\": \"L\",\n                    \"color\": \"Gris\",\n                    \"extraPrice\": 0\n                }\n            ],\n            \"categoria\": {\n                \"nombre\": \"Ropa\",\n                \"descripcion\": \"Prendas de vestir para hombres y mujeres\"\n            }\n        },\n        {\n            \"id\": \"9b9b0177-bf4b-4d60-bb67-6ae63aa3a3fc\",\n            \"nombre\": \"Camiseta Manga Corta\",\n            \"descripcion\": \"Camiseta deportiva de secado rápido\",\n            \"precioBase\": 17990,\n            \"image_url\": \"https://placehold.co/400x400?text=Camiseta\",\n            \"activo\": true,\n            \"variantes\": [\n                {\n                    \"id\": \"727a7619-4478-4e49-be24-2db4afb187fa\",\n                    \"talla\": \"L\",\n                    \"color\": \"Azul Navy\",\n                    \"extraPrice\": 0\n                },\n                {\n                    \"id\": \"0d3da936-673f-48c3-bf46-16f65de76771\",\n                    \"talla\": \"M\",\n                    \"color\": \"Blanco\",\n                    \"extraPrice\": 0\n                }\n            ],\n            \"categoria\": {\n                \"nombre\": \"Ropa\",\n                \"descripcion\": \"Prendas de vestir para hombres y mujeres\"\n            }\n        },\n        {\n            \"id\": \"014f95fc-9168-4435-941d-f0fab4e45a9c\",\n            \"nombre\": \"Polera Básica\",\n            \"descripcion\": \"Polera de algodón 100%, corte regular\",\n            \"precioBase\": 14990,\n            \"image_url\": \"https://placehold.co/400x400?text=Polera+Basica\",\n            \"activo\": true,\n            \"variantes\": [\n                {\n                    \"id\": \"2dd6a5a8-084c-48bf-9058-40ab4c829b6f\",\n                    \"talla\": \"M\",\n                    \"color\": \"Negro\",\n                    \"extraPrice\": 0\n                },\n                {\n                    \"id\": \"1a216d0c-f41c-496b-91f0-dd18e2838ac7\",\n                    \"talla\": \"S\",\n                    \"color\": \"Negro\",\n                    \"extraPrice\": 0\n                }\n            ],\n            \"categoria\": {\n                \"nombre\": \"Ropa\",\n                \"descripcion\": \"Prendas de vestir para hombres y mujeres\"\n            }\n        }\n    ],\n    \"pagination\": {\n        \"total\": 18,\n        \"totalPages\": 6,\n        \"currentPage\": 2,\n        \"limit\": 3\n    }\n}\n\n ```\n\nrespuesta en caso de error: 500."
+          },
+          "response": []
+        },
+        {
+          "name": "item id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/catalog/:productId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "catalog",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "9b9b0177-bf4b-4d60-bb67-6ae63aa3a3fa"
+                }
+              ]
+            },
+            "description": "ruta: /catalog/:productId\n\nRecibe como parametro productId\n\ncon esto, se obtiene la información asociada a un producto.\n\nrespuesta tipica: 200 ok\n\n``` json\n{\n    \"data\": {\n        \"id\": \"9b9b0177-bf4b-4d60-bb67-6ae63aa3a3fc\",\n        \"nombre\": \"Camiseta Manga Corta\",\n        \"descripcion\": \"Camiseta deportiva de secado rápido\",\n        \"precioBase\": 17990,\n        \"image_url\": \"https://placehold.co/400x400?text=Camiseta\",\n        \"activo\": true,\n        \"variantes\": [\n            {\n                \"id\": \"0d3da936-673f-48c3-bf46-16f65de76771\",\n                \"talla\": \"M\",\n                \"color\": \"Blanco\",\n                \"extraPrice\": 0\n            },\n            {\n                \"id\": \"727a7619-4478-4e49-be24-2db4afb187fa\",\n                \"talla\": \"L\",\n                \"color\": \"Azul Navy\",\n                \"extraPrice\": 0\n            }\n        ],\n        \"categoria\": {\n            \"nombre\": \"Ropa\",\n            \"descripcion\": \"Prendas de vestir para hombres y mujeres\"\n        }\n    }\n}\n\n ```\n\nRespuesta de producto no encontrado: 400 Not Found\n\n``` json\n{\n    \"error\": \"No se ha encontrado el producto.\"\n}\n\n ```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "cart",
+      "item": [
+        {
+          "name": "get cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZmFiNzQzNS0wY2IyLTQxYzctODdiYi0zNjRlNTQ3NTRhOTIiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDU5MjQyMywiZXhwIjoxNzgwNjA2ODIzfQ.gMolbOlI9BYCjCsbzFD_BoJZBTLlT-Rl8wtqsInWM6c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cart/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cart",
+                ""
+              ]
+            },
+            "description": "Obtiene el carrito del usuario\n\nrequiere estar autenticado con el token bearer"
+          },
+          "response": []
+        },
+        {
+          "name": "add item",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NmU3NzhjNC03MDNiLTQ4MjUtYjM2Ny01YzI0ZjQwNDI4NDUiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDM0MTE3MSwiZXhwIjoxNzgwMzU1NTcxfQ.rof5NDgyAZvP2lz1lg1Prcj3Q6GPkpmy75iFUcg0qaE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"varianteId\": \"7056806c-439f-49bb-bd21-355f95fb3450\",\r\n    \"quantity\": \"1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cart/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cart",
+                ""
+              ]
+            },
+            "description": "retorna un cart item."
+          },
+          "response": []
+        },
+        {
+          "name": "edit item quantity",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NmU3NzhjNC03MDNiLTQ4MjUtYjM2Ny01YzI0ZjQwNDI4NDUiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDM0MTE3MSwiZXhwIjoxNzgwMzU1NTcxfQ.rof5NDgyAZvP2lz1lg1Prcj3Q6GPkpmy75iFUcg0qaE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"quantity\": \"1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cart/:cartItemId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cart",
+                ":cartItemId"
+              ],
+              "variable": [
+                {
+                  "key": "cartItemId",
+                  "value": "f78432e8-b7ed-4dfa-bb26-8bb79cad2404"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete cart item}",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NmU3NzhjNC03MDNiLTQ4MjUtYjM2Ny01YzI0ZjQwNDI4NDUiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDM0MjE0NSwiZXhwIjoxNzgwMzU2NTQ1fQ.RsQWi1lIVYgB2s8-pmsLtNhXcZWZFtx_CQon0DT4NLs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cart/:cartItemId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cart",
+                ":cartItemId"
+              ],
+              "variable": [
+                {
+                  "key": "cartItemId",
+                  "value": "f78432e8-b7ed-4dfa-bb26-8bb79cad2404"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "get user data",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2N2RjMTBjOS04ODM4LTRlYjAtYjg4ZS05MDVjNzQwMzg0YzUiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDY3NzU3NywiZXhwIjoxNzgwNjkxOTc3fQ.W13Dl-dVSnYMBSl0ROwWIL6eSHtemSE1mPY22sORS20",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "me"
+              ]
+            },
+            "description": "Retrieve user data (nombre, email, rol and direction)"
+          },
+          "response": []
+        },
+        {
+          "name": "edit user data",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2N2RjMTBjOS04ODM4LTRlYjAtYjg4ZS05MDVjNzQwMzg0YzUiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDY3NTg3NCwiZXhwIjoxNzgwNjkwMjc0fQ.mkNEP6q4uBHKiCDmzkugeUQqk6ByQ406LWDol3WNCZ4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"@gggrt\",\r\n    \"calle\": \"asd\",\r\n    \"numero\": \"1234\",\r\n    \"ciudad\": \"santiago\",\r\n    \"comuna\": \"la q\",\r\n    \"region\": \"asd\",\r\n    \"codigoPostal\": \"255560\",\r\n    \"password\": \"user1234\",\r\n    \"oldPassword\": \"user1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user/me/data",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "me",
+                "data"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2N2RjMTBjOS04ODM4LTRlYjAtYjg4ZS05MDVjNzQwMzg0YzUiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDY3NzU3NywiZXhwIjoxNzgwNjkxOTc3fQ.W13Dl-dVSnYMBSl0ROwWIL6eSHtemSE1mPY22sORS20",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"user1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user/me/:userId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "me",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "67dc10c9-8838-4eb0-b88e-905c740384c5"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "place order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTIyMDkwNC0zNDhjLTQ0YWYtYWUwMS0wMzBlYzljNzY4OTEiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDY3NDg2NCwiZXhwIjoxNzgwNjg5MjY0fQ.ge6XdJk695hMrh40WV6eDTKQTLmEi4bPuxlnmOsAOiI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/order/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get orders",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTIyMDkwNC0zNDhjLTQ0YWYtYWUwMS0wMzBlYzljNzY4OTEiLCJub21icmUiOiJKdWFuIFDDqXJleiIsImlhdCI6MTc4MDY3NDg2NCwiZXhwIjoxNzgwNjg5MjY0fQ.ge6XdJk695hMrh40WV6eDTKQTLmEi4bPuxlnmOsAOiI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/order/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "{{baseUrl}}",
+      "value": ""
+    }
+  ]
+}

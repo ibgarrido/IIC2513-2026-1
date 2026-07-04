@@ -1,0 +1,87 @@
+.background-decor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-primary {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background-color: var(--color-primary);
+  opacity: 0.1;
+  border-radius: 9999px;
+  filter: blur(120px);
+}
+
+.glow-accent {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background-color: var(--color-accent);
+  opacity: 0.05;
+  border-radius: 9999px;
+  filter: blur(150px);
+}
+
+.grainy-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-highest);
+}
+
+.kinetic-text {
+  text-shadow: 2px 2px 0px var(--color-primary);
+}
+
+.font-headline {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tight);
+}
+
+.label-xs {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.label-sm {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: var(--color-text-secondary);
+}
+
+.font-bold {
+  font-weight: var(--weight-bold);
+}
+
+
+
+.accent-primary-text {
+  color: var(--color-primary-variant);
+}
+
+.accent-secondary {
+  color: var(--color-secondary);
+}

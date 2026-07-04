@@ -1,0 +1,98 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+.market {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 1.25rem;
+	color: #f9f7ed;
+	background:
+		radial-gradient(circle at 15% 15%, rgba(248, 200, 66, 0.22), transparent 38%),
+		radial-gradient(circle at 90% 70%, rgba(250, 106, 74, 0.2), transparent 42%),
+		linear-gradient(140deg, #0f1420 0%, #16203a 55%, #1f142f 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+
+.market__grid__container {
+	width: min(1200px, 100%);
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+}
+
+
+.market__aurora {
+	position: absolute;
+	inset: -20%;
+	background:
+		radial-gradient(circle at 25% 30%, rgba(255, 196, 70, 0.18), transparent 40%),
+		radial-gradient(circle at 72% 25%, rgba(121, 222, 198, 0.18), transparent 42%),
+		radial-gradient(circle at 65% 70%, rgba(255, 95, 95, 0.22), transparent 40%);
+	filter: blur(26px);
+	animation: drift 12s ease-in-out infinite alternate;
+	pointer-events: none;
+}
+
+
+
+.market__grid {
+  display: grid;
+  text-align: center;
+  /* Crea exactamente 3 columnas del mismo ancho */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Espaciado uniforme vertical y horizontal */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra la grilla en la pantalla */
+}
+
+
+.market__pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.market__pagination button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(115deg, #ffd165 0%, #ff9462 100%);
+  color: #141824;
+  font-weight: 700;
+  box-shadow: 0 9px 25px rgba(255, 148, 98, 0.28);
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.market__pagination button:hover,
+.market__pagination button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.market__pagination button:disabled {
+  background: rgba(255, 148, 98, 0.3);
+  color: rgba(20, 24, 36, 0.6);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.market__paginationInfo {
+  margin: 0 1.5rem;
+  font-size: 0.95rem;
+  color: rgba(247, 244, 231, 0.85);
+  ;
+}

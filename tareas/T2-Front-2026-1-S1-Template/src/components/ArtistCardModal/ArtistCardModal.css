@@ -1,0 +1,454 @@
+.artist-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.artist-modal {
+  width: 100%;
+  max-width: 28rem;
+  max-height: 85vh;
+  background: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.artist-modal-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.artist-modal-close:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.artist-modal-header {
+  aspect-ratio: 16 / 9;
+  max-height: 250px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.artist-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-modal-body {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+}
+
+.artist-modal-name {
+  font-size: var(--text-2xl);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: -0.25rem;
+}
+
+.artist-modal-info-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.artist-modal-price-tag {
+  margin-top: 0;
+}
+
+.artist-modal-favorites {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  background-color: var(--color-overlay-card);
+  border: 1px solid var(--color-overlay-card-light);
+}
+
+.artist-modal-favorites-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.artist-modal-favorites .fav-icon {
+  font-size: 1rem;
+  color: #ff4d6d;
+}
+
+.artist-modal-fav-btn {
+  background: none;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.artist-modal-fav-btn:hover {
+  color: #ff4d6d;
+  border-color: #ff4d6d;
+  transform: scale(1.1);
+}
+
+.artist-modal-fav-btn--active {
+  color: #ff4d6d;
+  border-color: #ff4d6d;
+}
+
+.artist-modal-fav-btn .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+.artist-modal-fav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.artist-modal-reviews {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 0.75rem;
+}
+
+.artist-modal-reviews-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.artist-modal-reviews-title .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+.artist-modal-reviews-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+.artist-modal-review-item {
+  background: var(--color-overlay-card);
+  border: 1px solid var(--color-overlay-card-light);
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.artist-modal-review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.artist-modal-review-user {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.artist-modal-review-stars {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.star-icon {
+  font-size: 0.9rem;
+}
+
+.star-filled {
+  color: #fbbf24;
+}
+
+.star-empty {
+  color: #555;
+}
+
+.artist-modal-review-comment {
+  font-size: 0.82rem;
+  margin: 0.2rem 0;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.artist-modal-review-date {
+  font-size: 0.72rem;
+  opacity: 0.5;
+}
+
+.artist-modal-add-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.artist-modal-star-selector {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.star-selector-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.1s;
+}
+
+.star-selector-btn:hover {
+  transform: scale(1.2);
+}
+
+.artist-modal-review-form {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--color-overlay-card);
+}
+
+.artist-modal-review-form-title {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.artist-modal-review-form-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.artist-modal-review-form-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.35rem;
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+}
+
+.artist-modal-review-form-textarea:focus {
+  outline: 1px solid var(--color-primary);
+}
+
+.artist-modal-review-form-error {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--color-status-error);
+}
+
+.artist-modal-review-form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.artist-modal-review-form-actions .book-btn {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+.artist-modal-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.artist-modal-overlay-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--color-bg-base) 0%, transparent 60%);
+  opacity: 0.8;
+}
+
+/* ── Expanded reviews panel ── */
+
+.artist-modal-overlay--expanded {
+  flex-direction: row;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.artist-modal-overlay--expanded .artist-modal {
+  flex-shrink: 0;
+}
+
+.artist-modal-expanded-panel {
+  width: 100%;
+  max-width: 26rem;
+  max-height: 85vh;
+  background: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.artist-modal-expanded-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+.artist-modal-expanded-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.artist-modal-expanded-title .material-symbols-outlined {
+  font-size: 1.15rem;
+}
+
+.artist-modal-expanded-close {
+  background: none;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.artist-modal-expanded-close:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.artist-modal-expanded-close .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+.artist-modal-expanded-list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Mobile: panel debajo del modal */
+@media (max-width: 768px) {
+  .artist-modal-overlay--expanded {
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .artist-modal-overlay--expanded .artist-modal {
+    max-height: 50vh;
+  }
+
+  .artist-modal-expanded-panel {
+    max-height: 40vh;
+  }
+}
+
+.artist-modal-review-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.artist-modal-review-buttons .book-btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.7rem;
+  flex: 0 0 auto;
+  display: inline-flex;
+  width: auto;
+}
+
+.artist-modal-hype-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--color-overlay-card);
+  backdrop-filter: blur(10px);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  border: 1px solid var(--color-overlay-card-light);
+}

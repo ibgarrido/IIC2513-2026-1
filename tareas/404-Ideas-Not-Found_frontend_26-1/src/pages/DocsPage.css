@@ -1,0 +1,106 @@
+.docs-container {
+  min-height: 100vh;
+  padding: 120px 80px 80px; 
+  background-color: var(--bg);
+  color: var(--dark);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.docs-header {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+.docs-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.docs-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.docs-content {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Estilos del Acordeón Dinámico */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accordion-item {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-item.active {
+  background-color: var(--dark);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.accordion-item.active .accordion-header {
+  color: var(--bg);
+}
+
+.accordion-icon {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--green);
+}
+
+.accordion-body {
+  padding: 0 24px 24px;
+  color: var(--sage);
+  font-size: 15px;
+  line-height: 1.6;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive básico */
+@media (max-width: 768px) {
+  .docs-container {
+    padding: 100px 32px 40px;
+  }
+}

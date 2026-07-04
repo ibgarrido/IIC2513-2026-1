@@ -1,0 +1,54 @@
+name: Deploy to Render
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Trigger and verify Render deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+
+      - name: install dependencies
+        run: pnpm install
+      - name: Run ESLint
+        run: pnpm run lint
+      - name: Trigger deploy
+        id: trigger
+        run: |
+          response=$(curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}")
+          echo "Response: $response"
+          deploy_id=$(echo "$response" | jq -r '.deploy.id')
+          echo "deploy_id=$deploy_id" >> $GITHUB_OUTPUT
+
+      - name: Wait for deployment to finish
+        run: |
+          deploy_id="${{ steps.trigger.outputs.deploy_id }}"
+          echo "Polling deployment $deploy_id..."
+          while true; do
+            result=$(curl -s \
+              -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+              "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys/$deploy_id")
+            status=$(echo "$result" | jq -r '.status')
+            echo "Status: $status"
+            case "$status" in
+              live)
+                echo "Deployment succeeded!"
+                exit 0
+                ;;
+              build_failed|update_failed|deactivated|canceled)
+                echo "Deployment failed with status: $status"
+                exit 1
+                ;;
+            esac
+            sleep 15
+          done

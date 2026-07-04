@@ -1,0 +1,66 @@
+.modal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.modal__content {
+  background-color: #121212;
+  padding: 2rem;
+  border-radius: 12px;
+  width: min(90%, 450px);
+  max-height: calc(100vh - 3rem);
+  overflow: auto;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal__closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal__actionButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(115deg, #ffd165 0%, #ff9462 100%);
+  border-radius: 10px;
+  color: #141824;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.modal__actionButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 35px rgba(255, 148, 98, 0.48);
+}
+
+.modal__deleteButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(115deg, #ff6b6b 0%, #ff4757 100%);
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}

@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Subí el z-index para evitar que se superponga con otros elementos */
+  padding: 0 80px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(246, 244, 239, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(31, 42, 39, 0.08);
+  transition: box-shadow 0.2s;
+}
+
+.navbar-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1F2A27;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1001; /* Asegura que el logo esté por encima del menú móvil */
+}
+
+.navbar-logo span {
+  color: #41A885;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navbar-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5F5A57;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s, background 0.2s;
+}
+
+.navbar-link:hover {
+  color: #1F2A27;
+  background: rgba(31, 42, 39, 0.06);
+}
+
+.navbar-link.active {
+  color: #41A885;
+  font-weight: 600;
+}
+
+.navbar-btn, .navbar-btn-logout {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.navbar-btn {
+  color: #F6F4EF;
+  background: #1F2A27;
+  border: none;
+}
+
+.navbar-btn:hover {
+  background: #41A885;
+}
+
+.navbar-btn-logout {
+  background: transparent;
+  color: #1F2A27;
+  border: 1px solid rgba(31, 42, 39, 0.3);
+}
+
+.navbar-btn-logout:hover {
+  background: #c0392b;
+  color: #F6F4EF;
+  border-color: #c0392b;
+}
+
+.navbar-username {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1F2A27;
+  padding: 8px 16px;
+}
+
+/* --- ESTILOS DEL BOTÓN HAMBURGUESA (Oculto en PC) --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #1F2A27;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animación de la Hamburguesa a una 'X' */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MEDIA QUERY PARA MÓVILES (Tablets e Iphones)
+   ========================================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 24px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 64px; 
+    left: -100%; 
+    flex-direction: column;
+    width: 100%;
+    background: #F6F4EF;
+    border-bottom: 1px solid rgba(31, 42, 39, 0.08);
+    padding: 20px 24px;
+    transition: left 0.3s ease;
+    align-items: flex-start;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+  }
+
+  .navbar-links.active {
+    left: 0;
+  }
+
+  .navbar-link {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px; 
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-radius: 0;
+  }
+
+  .navbar-username {
+    padding: 15px 0 5px 0;
+    font-size: 14px;
+  }
+
+  .navbar-btn, .navbar-btn-logout {
+    width: 100%; 
+    text-align: center;
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 12px 20px;
+  }
+}

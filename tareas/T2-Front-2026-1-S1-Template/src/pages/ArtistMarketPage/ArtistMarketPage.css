@@ -1,0 +1,252 @@
+.artist-market-page {
+  padding: 1.5rem 1.5rem 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .artist-market-page {
+    padding: 2rem 3rem 2rem;
+  }
+}
+
+.artist-market-page-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.artist-market-page-title {
+  font-size: var(--text-3xl);
+  line-height: 1;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tighter);
+}
+
+.artist-market-highlight {
+  color: var(--color-primary-light, #ff7ab3);
+}
+
+@media (min-width: 1024px) {
+  .artist-market-page-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+.artist-market-section {
+  margin-bottom: 2.5rem;
+}
+
+
+
+.artist-market-section-head {
+  margin-bottom: 1.25rem;
+}
+
+.artist-market-section-head--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.artist-market-section-title {
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 1024px) {
+  .artist-market-section-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+.artist-market-section-muted {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+
+
+
+
+.artist-market-flash {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  border-radius: 0.35rem;
+}
+
+.artist-market-flash--ok {
+  color: var(--color-secondary);
+  background: rgba(226, 255, 0, 0.08);
+  border: 1px solid rgba(226, 255, 0, 0.25);
+}
+
+.artist-market-flash--err {
+  color: var(--color-status-error);
+  background: var(--color-status-error-bg);
+  border: 1px solid rgba(255, 75, 75, 0.35);
+}
+
+.artist-market-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  width: 100%;
+  max-width: min(100%, 56rem);
+  justify-content: space-between;
+}
+
+.artist-market-filter-bar .artist-market-search-box {
+  flex: 1 1 14rem;
+  width: auto;
+  min-width: min(100%, 12rem);
+  max-width: none;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.artist-market-favorites-toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.artist-market-favorites-toggle .material-symbols-outlined {
+  font-size: 1.15rem;
+}
+
+.artist-market-favorites-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.artist-market-favorites-toggle--on {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(255, 0, 122, 0.08);
+}
+
+.artist-market-artist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: stretch;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 540px) {
+  .artist-market-artist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .artist-market-artist-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.artist-market-artist-cell {
+  width: 100%;
+  max-width: 22rem;
+  min-width: 0;
+}
+
+.artist-market-artist-cell .artist-card-outer {
+  height: 100%;
+}
+
+.artist-market-alert {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem;
+}
+
+.artist-market-alert--row {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.artist-market-artist-grid .artist-market-alert--row {
+  grid-column: 1 / -1;
+  justify-self: stretch;
+  max-width: none;
+}
+
+.artist-market-alert--error {
+  color: var(--color-status-error);
+}
+
+.artist-market-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.artist-market-pagination-btn {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.artist-market-pagination-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.artist-market-pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.artist-market-pagination-meta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

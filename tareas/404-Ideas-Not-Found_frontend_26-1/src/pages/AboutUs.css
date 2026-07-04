@@ -1,0 +1,94 @@
+/* AboutUs.css */
+/*Animation Adjusted to the project using GitHub Copilot ()*/
+
+.about-section {
+  width: min(1240px, calc(100% - var(--s8)));
+  margin: 0 auto;
+  padding: clamp(var(--s8), 10vw, var(--s16)) var(--s8);
+  text-align: center;
+  background: #E7E2DA;
+}
+
+.about-header {
+  margin-bottom: clamp(var(--s8), 8vw, var(--s12));
+}
+
+.about-header h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: rgb(83, 82, 82);
+  margin: 0 0 var(--s5) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+.about-header p {
+  color: var(--muted);
+  margin: 0;
+  max-width: 55ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/*--------Carousel (Source: GitHub Copilot)------------*/
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  /* CSS-driven auto-advance: 3 slides, ~5s per slide (15s total). */
+  animation: carouselMove 15s infinite;
+}
+
+/* Keyframes drive the translateX positions so the track holds each slide for
+   ~5s then smoothly transitions left to the next. If you change slide count,
+   update these keyframes accordingly. */
+@keyframes carouselMove {
+  0% { transform: translateX(0%); }
+  30% { transform: translateX(0%); }
+  33% { transform: translateX(-100%); }
+  63% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  96% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+.carousel-slide {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/*---------------------*/
+@media (max-width: 640px) {
+  .about-section {
+    padding: var(--s8) var(--s4);
+  }
+  
+  .about-header {
+    margin-bottom: var(--s8);
+  }
+  
+  .about-header h1 {
+    font-size: 1.75rem;
+  }
+}
+

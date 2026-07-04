@@ -1,0 +1,34 @@
+/* FOOTER */
+.footer {
+  background: var(--dark);
+  padding: 48px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--bg);
+}
+
+.footer-logo span {
+  color: var(--green);
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer {
+    padding: 40px 32px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

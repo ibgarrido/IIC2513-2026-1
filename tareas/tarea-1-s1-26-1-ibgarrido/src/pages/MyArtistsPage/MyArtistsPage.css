@@ -1,0 +1,74 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.myArtists {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 1.25rem;
+	color: #f9f7ed;
+	background:
+		radial-gradient(circle at 15% 15%, rgba(248, 200, 66, 0.22), transparent 38%),
+		radial-gradient(circle at 90% 70%, rgba(250, 106, 74, 0.2), transparent 42%),
+		linear-gradient(140deg, #0f1420 0%, #16203a 55%, #1f142f 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+
+.myArtists__grid {
+  display: grid;
+  text-align: center;
+  /* Crea exactamente 3 columnas del mismo ancho */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Espaciado uniforme vertical y horizontal */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra la grilla en la pantalla */
+}
+
+.myArtists__aurora {
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(circle at 25% 30%, rgba(255, 196, 70, 0.18), transparent 40%),
+        radial-gradient(circle at 72% 25%, rgba(121, 222, 198, 0.18), transparent 42%),
+        radial-gradient(circle at 65% 70%, rgba(255, 95, 95, 0.22), transparent 40%);
+    filter: blur(26px);
+    animation: drift 12s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.myArtists__headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.myArtists__createButton {
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(115deg, #ffd165 0%, #f7ff62 100%);
+  color: #141824;
+  font-weight: 700;
+  padding: 0.72rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 9px 25px rgba(255, 148, 98, 0.28);
+  transition: transform 180ms ease;
+}
+
+.myArtists__createButton:hover,
+.myArtists__createButton:focus-visible {
+  transform: translateY(-1px);
+}
+

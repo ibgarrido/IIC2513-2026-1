@@ -1,0 +1,42 @@
+.btn-add-cart {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #41A885;
+  background: transparent;
+  border: 1px solid #41A885;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-add-cart:hover:not(:disabled) {
+  background: #41A885;
+  color: #F6F4EF;
+}
+
+.btn-add-cart:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cart-feedback {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.cart-feedback--success {
+  color: #2d7a55;
+  background: #e6f4ee;
+}
+
+.cart-feedback--error {
+  color: #C43030;
+  background: #fdecea;
+}

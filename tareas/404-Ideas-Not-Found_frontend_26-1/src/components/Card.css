@@ -1,0 +1,234 @@
+/* Card.css */
+/* Original design card: https://uiverse.io/JaydipPrajapati1910/kind-lionfish-71 */
+/*Adjusted to the project using GitHub Copilot (New colors)*/
+/*Some animations are recomendations of chatGPT (Reference in code)*/
+
+
+/*Efecto de aparición al cargar la página*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-card {
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  /* Card surface: keeps the main container white for contrast. */
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(31, 42, 39, 0.06);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  display: flex;
+  flex-direction: column;
+}
+/* Hover effect: subtle lift and shadow to indicate interactivity. */
+.card:hover { /* source: chatGPT */
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+.card:hover .card-header::after { /* source: chatGPT */
+  opacity: 0.3;
+}
+
+.card-header::after { /* source: chatGPT */
+  transition: opacity 0.3s ease;
+}
+
+
+/*Animation image card */
+.card-header {
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-header {
+  transform: scale(1.05);
+}
+
+.card-header {
+  position: relative;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  /* Header base tone: creamy background shown behind the image. */
+  background-color: var(--surface-2);
+}
+
+
+/*Animacion que quita la mitad opaca al poner mouse sobre card*/
+.card-header::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* Image overlay: dark-to-warm tint for legibility. */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.15), rgba(170, 125, 94, 0.08));
+  z-index: 1;
+}
+
+.card-header-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: var(--s4);
+}
+
+.btn-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  /* Message button: dark neutral background with white icon. */
+  background: rgba(31, 42, 39, 0.9);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn-message:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+
+.btn-message svg {
+  width: 18px;
+  height: 18px;
+}
+
+.card-header-slanted-edge {
+  display: none;
+}
+
+.card-body {
+  padding: var(--s6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titles-container {
+  text-align: left;
+  margin-bottom: var(--s4);
+}
+
+.name {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  /* Name text: dark gray for strong emphasis. */
+  color: #4b4b4b;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--s2);
+}
+
+.job-title {
+  display: block;
+  font-size: 0.9rem;
+  /* Role text: muted gray to sit below the name. */
+  color: #6b6b6b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bio {
+  font-size: 0.95rem;
+  /* Bio text: softer gray so it reads secondary to the name. */
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: var(--s4);
+  text-align: left;
+  min-height: 70px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.social-handle-container {
+  align-items: center;
+  display: flex;
+  gap: var(--s2);
+  font-size: 0.85rem;
+  /* Social handle: muted gray to match the role label. */
+  color: #6b6b6b;
+  font-weight: 600;
+  padding: var(--s3) 0;
+  border-top: 1px solid rgba(31, 42, 39, 0.08);
+  text-align: left;
+  margin-bottom: var(--s4);
+}
+
+.card-footer {
+  padding: var(--s4) var(--s6) var(--s6);
+  border-top: 1px solid rgba(31, 42, 39, 0.08);
+  background: transparent;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  /* Stat label: muted neutral gray for hierarchy. */
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: var(--s2);
+}
+
+.stat .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  /* Stat value: accent green to highlight the metric. */
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 640px) {
+  .card {
+    max-width: 100%;
+  }
+  
+  .card-header {
+    height: 200px;
+  }
+  
+  .card-body {
+    padding: var(--s5);
+  }
+  
+  .name {
+    font-size: 1.15rem;
+  }
+  
+  .stat .value {
+    font-size: 1.25rem;
+  }
+}

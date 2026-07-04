@@ -1,0 +1,46 @@
+
+¡Hola Ignacio Benjamín Bobadilla! 🧑‍💻👩‍💻
+
+¡Bienvenido a una misión ultra secreta de Tecnologías y Aplicaciones Web! 🚀🌐  
+Necesitamos tu ayuda para **salvar al ayudante Andrew**, quien ha sido capturado por el misterioso y temido... **profesor Antonio Ossa** 🕵️‍♂️🧠
+
+Para liberarlo, deberás resolver un acertijo que contiene la **clave** para desencriptar una palabra secreta.  
+Esa palabra podría desbloquear el sistema que mantiene a Andrew encerrado en un iframe eterno. 😱💾
+
+Pero cuidado...  
+🌟 Solo sabrás que la firma es de la forma: `firma-XXX`, donde `XXX` es un número entre 100 y 999.  
+🌟 La palabra ha sido firmada y cifrada usando esta clave.
+
+Prepárate, agente Ignacio.  
+Aquí está **tu acertijo**:
+
+        No soy mapa ni camino,
+        pero ayudo a encontrar.
+        Traduzco nombres conocidos
+        para poder navegar.
+        Si buscas un sitio en la red,
+        te puedo orientar.
+        ¿Qué soy?
+
+🧩 **Tu misión**:  
+Usa la respuesta del acertijo como parte de la clave secreta para verificar la palabra original.
+
+📝 Datos para tu investigación:
+🧪 Hash firmado: d12717410b3d6f7f3d8d6931ac7d3b73c168e20b65d64f9993c48f756911377a
+
+🔍 Para encontrar la palabra final, aquí tienes una última pista:
+
+        No soy tienda ni mercado,
+        aunque mucho puedo ofrecer.
+        Si buscas nuevas librerías,
+        me vienes a conocer.
+        Con un simple comando,
+        las podrás obtener.
+        ¿Quién soy?
+
+🔡 La palabra original tiene esta forma: `mensaje-XXX`, donde `XXX` es un número entre 100 y 999.  
+
+¡Buena suerte, agente! 🌍🔓  
+El futuro de los ayudantes depende de ti...
+
+PD: Si venías para saber cómo modificar las notas del curso, la única forma de hacerlo es robando el computador de Andrew😈, o recorrigiendo las tareas ✨

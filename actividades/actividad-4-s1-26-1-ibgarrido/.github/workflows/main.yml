@@ -1,0 +1,39 @@
+name: Actividad 4 Pipeline
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  ci-cd-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar linter
+        run: npx eslint .
+
+      - name: Ejecutar tests
+        run: npx jest
+
+      - name: Obtener superhéroe y actualizar README
+        run: node update.js
+
+      - name: Hacer commit y push del README actualizado
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "chore: actualiza superheroe y version en el README" || echo "No hay cambios para commitear"
+          git push

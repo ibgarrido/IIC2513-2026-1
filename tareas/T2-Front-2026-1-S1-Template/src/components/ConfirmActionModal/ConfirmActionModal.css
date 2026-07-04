@@ -1,0 +1,95 @@
+.confirm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 260;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.confirm-modal {
+  width: 100%;
+  max-width: 22rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  padding: 1.35rem 1.5rem 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.confirm-modal--danger .confirm-modal-btn--ok {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 75, 75, 0.95) 0%,
+    #c62828 100%
+  );
+  color: #fff;
+  border: none;
+}
+
+.confirm-modal-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-black);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+.confirm-modal-message {
+  margin: 0 0 1.35rem;
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.confirm-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: flex-end;
+}
+
+.confirm-modal-btn {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.15rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  transition: border-color 0.2s, filter 0.2s;
+}
+
+.confirm-modal-btn:hover {
+  filter: brightness(1.08);
+}
+
+.confirm-modal-btn--cancel {
+  border-color: var(--color-border-subtle);
+}
+
+.confirm-modal-btn--ok {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 100%
+  );
+  color: var(--color-text-on-primary);
+  border: none;
+}
+
+.confirm-modal--danger .confirm-modal-btn--ok:hover {
+  filter: brightness(1.06);
+}

@@ -1,0 +1,273 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ER Diagram" id="er-diagram">
+    <mxGraphModel dx="643" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Users" vertex="1">
+          <mxGeometry height="136" width="220" x="560" y="17" as="geometry" />
+        </mxCell>
+        <mxCell id="3" connectable="0" parent="2" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4" connectable="0" parent="2" style="text;align=left;spacingLeft=4;fontSize=11;" value="nombre : string" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="5" connectable="0" parent="2" style="text;align=left;spacingLeft=4;fontSize=11;" value="email : string" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="6" connectable="0" parent="2" style="text;align=left;spacingLeft=4;fontSize=11;" value="password : string" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="7" connectable="0" parent="2" style="text;align=left;spacingLeft=4;fontSize=11;" value="rol : string" vertex="1">
+          <mxGeometry height="22" width="220" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Directions" vertex="1">
+          <mxGeometry height="202" width="220" x="80" y="17" as="geometry" />
+        </mxCell>
+        <mxCell id="9" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="10" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="userId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="11" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;" value="calle : string" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="12" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;" value="numero : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="13" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;" value="ciudad : string" vertex="1">
+          <mxGeometry height="22" width="220" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="14" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;" value="comuna : string" vertex="1">
+          <mxGeometry height="22" width="220" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="15" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;" value="region : string" vertex="1">
+          <mxGeometry height="22" width="220" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="16" connectable="0" parent="8" style="text;align=left;spacingLeft=4;fontSize=11;" value="codigoPostal : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Carts" vertex="1">
+          <mxGeometry height="70" width="220" x="860" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="18" connectable="0" parent="17" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="19" connectable="0" parent="17" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="userId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="CartItems" vertex="1">
+          <mxGeometry height="114" width="220" x="890" y="663" as="geometry" />
+        </mxCell>
+        <mxCell id="21" connectable="0" parent="20" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="22" connectable="0" parent="20" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="cartId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="23" connectable="0" parent="20" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="varianteId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="24" connectable="0" parent="20" style="text;align=left;spacingLeft=4;fontSize=11;" value="quantity : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Orders" vertex="1">
+          <mxGeometry height="114" width="220" x="540" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="26" connectable="0" parent="25" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="27" connectable="0" parent="25" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="userId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="28" connectable="0" parent="25" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="directionId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="29" connectable="0" parent="25" style="text;align=left;spacingLeft=4;fontSize=11;" value="total : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="OrderStatuses" vertex="1">
+          <mxGeometry height="158" width="220" x="890" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="31" connectable="0" parent="30" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="32" connectable="0" parent="30" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="orderId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="33" connectable="0" parent="30" style="text;align=left;spacingLeft=4;fontSize=11;" value="status : enum (recibido | confirmado |&#xa; procesando | embalando |&#xa; enviado | terminado)" vertex="1">
+          <mxGeometry height="44" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="34" connectable="0" parent="30" style="text;align=left;spacingLeft=4;fontSize=11;" value="descripcion : string" vertex="1">
+          <mxGeometry height="22" width="220" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="35" connectable="0" parent="30" style="text;align=left;spacingLeft=4;fontSize=11;" value="fecha : date" vertex="1">
+          <mxGeometry height="22" width="220" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="36" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Categorias" vertex="1">
+          <mxGeometry height="92" width="220" x="80" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="37" connectable="0" parent="36" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="38" connectable="0" parent="36" style="text;align=left;spacingLeft=4;fontSize=11;" value="nombre : string" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="39" connectable="0" parent="36" style="text;align=left;spacingLeft=4;fontSize=11;" value="descripcion : string" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="40" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Products" vertex="1">
+          <mxGeometry height="180" width="220" x="80" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="41" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="42" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="categoriaId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="43" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;" value="nombre : string" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="44" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;" value="descripcion : string" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="45" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;" value="precioBase : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="46" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;" value="image_url : string" vertex="1">
+          <mxGeometry height="22" width="220" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="47" connectable="0" parent="40" style="text;align=left;spacingLeft=4;fontSize=11;" value="activo : boolean" vertex="1">
+          <mxGeometry height="22" width="220" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="48" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="Variantes" vertex="1">
+          <mxGeometry height="158" width="220" x="540" y="641" as="geometry" />
+        </mxCell>
+        <mxCell id="49" connectable="0" parent="48" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="50" connectable="0" parent="48" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="productId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="51" connectable="0" parent="48" style="text;align=left;spacingLeft=4;fontSize=11;" value="talla : string" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="52" connectable="0" parent="48" style="text;align=left;spacingLeft=4;fontSize=11;" value="color : string" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="53" connectable="0" parent="48" style="text;align=left;spacingLeft=4;fontSize=11;" value="stock : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="54" connectable="0" parent="48" style="text;align=left;spacingLeft=4;fontSize=11;" value="extraPrice : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="55" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;container=1;collapsible=0;" value="OrderItems" vertex="1">
+          <mxGeometry height="202" width="220" x="540" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="56" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=5;" value="id : UUID" vertex="1">
+          <mxGeometry height="22" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="57" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="orderId : UUID (FK)" vertex="1">
+          <mxGeometry height="22" width="220" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="58" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;fontStyle=2;" value="varianteId : UUID (FK, nullable)" vertex="1">
+          <mxGeometry height="22" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="59" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;" value="cantidad : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="60" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;" value="unitPrice : integer" vertex="1">
+          <mxGeometry height="22" width="220" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="72" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;" value="productName : string" vertex="1">
+          <mxGeometry height="22" width="220" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="73" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;" value="varianteTalla : string" vertex="1">
+          <mxGeometry height="22" width="220" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="74" connectable="0" parent="55" style="text;align=left;spacingLeft=4;fontSize=11;" value="varianteColor : string" vertex="1">
+          <mxGeometry height="22" width="220" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="61" edge="1" parent="1" source="36" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;" target="40" value="has many">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62" edge="1" parent="1" source="40" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmany;startArrow=ERmandOne;startFill=0;endFill=0;fontSize=11;" target="48" value="Belongs to">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="63" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;" value="has  one">
+          <mxGeometry relative="1" x="0.0768" y="-5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="300" y="85" />
+            </Array>
+            <mxPoint x="300" y="85" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="64" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;" target="25" value="has many">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="110" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="65" edge="1" parent="1" source="2" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;" target="17" value="has one">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="66" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;strokeColor=default;jumpStyle=none;" target="25" value="has many">
+          <mxGeometry relative="1" x="-0.4442" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="390" y="118" />
+              <mxPoint x="390" y="317" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="67" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="55" value="Has many">
+          <mxGeometry relative="1" x="0.0646" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="760" y="360" as="sourcePoint" />
+            <mxPoint x="820" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="68" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;" value="">
+          <mxGeometry relative="1" x="0.3846" y="7" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="760" y="330" as="sourcePoint" />
+            <mxPoint x="890" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QbYLw3rjPlmb2GLVGNRF-80" connectable="0" parent="68" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Has many" vertex="1">
+          <mxGeometry relative="1" x="-0.2496" as="geometry">
+            <mxPoint x="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70" edge="1" parent="1" source="17" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmandOne;startArrow=ERmany;startFill=0;endFill=0;fontSize=11;" target="20" value="has many">
+          <mxGeometry relative="1" x="-0.6552" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="71" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmany;startArrow=ERmandOne;startFill=0;endFill=0;fontSize=11;" value="Belongs to">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="745" as="sourcePoint" />
+            <mxPoint x="890" y="745" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QbYLw3rjPlmb2GLVGNRF-78" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;curved=0;startArrow=ERmany;startFill=0;endArrow=ERmandOne;endFill=0;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="480" />
+              <mxPoint x="800" y="700" />
+            </Array>
+            <mxPoint x="760" y="480" as="sourcePoint" />
+            <mxPoint x="760" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QbYLw3rjPlmb2GLVGNRF-79" connectable="0" parent="QbYLw3rjPlmb2GLVGNRF-78" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;Belongs to&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.3841" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

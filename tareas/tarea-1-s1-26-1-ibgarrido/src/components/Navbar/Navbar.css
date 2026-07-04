@@ -1,0 +1,125 @@
+.market__navbar {
+	width: min(1200px, 100%);
+	margin: 0 auto 1.25rem;
+	padding: 1rem 1.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 18px;
+	background: rgba(8, 10, 16, 0.62);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+	z-index: 1;
+}
+
+.market__brand {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	min-width: 0;
+}
+
+.market__brandMark {
+	width: 44px;
+	height: 44px;
+	border-radius: 14px;
+	display: grid;
+	place-items: center;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	color: #161b28;
+	background: linear-gradient(135deg, #ffd165 0%, #ff9462 100%);
+	box-shadow: 0 10px 22px rgba(255, 148, 98, 0.36);
+}
+
+.market__brandKicker {
+	margin: 0;
+	font-size: 0.72rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #ffd074;
+}
+
+.market__brandName {
+	margin: 0.2rem 0 0;
+	font-size: 1.05rem;
+	line-height: 1.1;
+	color: #fff7d6;
+}
+
+.market__navLinks {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.market__navLink,
+.market__loginButton,
+.market__logoutButton {
+	border: 0;
+	text-decoration: none;
+	font: inherit;
+	cursor: pointer;
+	padding: 0.72rem 1rem;
+	border-radius: 999px;
+	transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.market__navLink {
+	color: rgba(247, 244, 231, 0.92);
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.market__navLink:hover,
+.market__navLink:focus-visible {
+	transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.market__userArea {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.market__currencyBadge {
+	padding: 0.55rem 0.85rem;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	color: #fff7d6;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 209, 101, 0.3);
+	white-space: nowrap;
+}
+
+.market__userLabel {
+	font-size: 0.92rem;
+	color: rgba(247, 244, 231, 0.85);
+	white-space: nowrap;
+}
+
+.market__loginButton,
+.market__logoutButton {
+	background: linear-gradient(115deg, #ffd165 0%, #ff9462 100%);
+	color: #141824;
+	font-weight: 700;
+	box-shadow: 0 9px 25px rgba(255, 148, 98, 0.28);
+}
+
+.market__loginButton:hover,
+.market__loginButton:focus-visible,
+.market__logoutButton:hover,
+.market__logoutButton:focus-visible {
+	transform: translateY(-1px);
+}
+
